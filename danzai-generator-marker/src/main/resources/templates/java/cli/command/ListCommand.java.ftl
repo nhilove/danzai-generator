@@ -1,6 +1,4 @@
-package templates.java.cli.command;
-
-{basePackage}.cli.command;
+package ${basePackage}.cli.command;
 
 import cn.hutool.core.io.FileUtil;
 import picocli.CommandLine;
@@ -9,14 +7,14 @@ import java.io.File;
 import java.util.List;
 
 /**
-* ClassName: ListCommand
-* Package: ${basePackage}.cli.command
-* Description: ${description}
-*
-* @Author ${author}
-* @Create ${createTime}
-* @Version ${version}
-*/
+ * ClassName: ListCommand
+ * Package: ${basePackage}.cli.command
+ * Description: ${description}
+ *
+ * @Author ${author}
+ * @Create ${createTime}
+ * @Version ${version}
+ */
 @CommandLine.Command( name = "list",description = "文件列表",mixinStandardHelpOptions = true )
 public class ListCommand implements Runnable{
 

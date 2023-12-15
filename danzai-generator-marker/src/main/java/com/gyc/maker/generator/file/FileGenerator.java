@@ -1,4 +1,4 @@
-package com.gyc.generator.file;
+package com.gyc.maker.generator.file;
 
 import freemarker.template.TemplateException;
 
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 /**
  * ClassName: FileGenerator
- * Package: com.gyc.generator
+ * Package: com.gyc.maker.generator
  * Description:
  *
  * @Author gyc

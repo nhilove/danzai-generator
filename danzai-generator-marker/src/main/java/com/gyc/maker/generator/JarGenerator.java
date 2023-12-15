@@ -1,4 +1,4 @@
-package com.gyc.generator;
+package com.gyc.maker.generator;
 
 import java.io.*;
 

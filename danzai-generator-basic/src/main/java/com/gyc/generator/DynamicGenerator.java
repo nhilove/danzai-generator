@@ -1,5 +1,6 @@
 package com.gyc.generator;
 
+import cn.hutool.core.io.FileUtil;
 import com.gyc.model.MainTemplateConfig;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -49,7 +50,9 @@ public class DynamicGenerator {
         Template template = cfg.getTemplate(name);
 
         //准备数据
-
+        if (!FileUtil.exist(output)){
+            FileUtil.touch(output);
+        }
         FileWriter out = new FileWriter(output);
         template.process(dataMode, out);
 

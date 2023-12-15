@@ -1,6 +1,4 @@
-package templates.java.cli.command;
-
-{basePackage}.cli.command;
+package ${basePackage}.cli.command;
 
 import cn.hutool.core.bean.BeanUtil;
 import ${basePackage}.generator.MainGenerator;
@@ -13,14 +11,14 @@ import java.io.IOException;
 import java.util.concurrent.Callable;
 
 /**
-* ClassName: GenerateCommand
-* Package: ${basePackage}.cli.command
-* Description: ${description}
-*
-* @Author ${author}
-* @Create ${createTime}
-* @Version ${version}
-*/
+ * ClassName: GenerateCommand
+ * Package: ${basePackage}.cli.command
+ * Description: ${description}
+ *
+ * @Author ${author}
+ * @Create ${createTime}
+ * @Version ${version}
+ */
 @CommandLine.Command( name = "generate",description = "文件生成",mixinStandardHelpOptions = true )
 @Data
 public class GenerateCommand implements Callable<Integer> {
@@ -28,8 +26,8 @@ public class GenerateCommand implements Callable<Integer> {
     <#list modelConfig.models as modelInfo>
         <#if modelInfo.description??>
     /**
-    *   ${modelInfo.description}
-    */
+     *   ${modelInfo.description}
+     */
         </#if>
     @CommandLine.Option(names = { <#if modelInfo.abbr??>"-${modelInfo.abbr}",</#if>"--${modelInfo.fieldName}" }, arity = "0..1",<#if modelInfo.description??>description = "${modelInfo.description}",</#if>interactive = true,echo = true)
     private ${modelInfo.type} ${modelInfo.fieldName} <#if modelInfo.defaultValue??>= ${modelInfo.defaultValue?c}</#if>;

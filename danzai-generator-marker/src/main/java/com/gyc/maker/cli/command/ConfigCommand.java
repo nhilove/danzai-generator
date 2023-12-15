@@ -1,14 +1,14 @@
-package com.gyc.cli.command;
+package com.gyc.maker.cli.command;
 
 import cn.hutool.core.util.ReflectUtil;
-import com.gyc.model.DataModel;
+import com.gyc.maker.model.DataModel;
 import picocli.CommandLine;
 
 import java.lang.reflect.Field;
 
 /**
  * ClassName: ConfigCommand
- * Package: com.gyc.cli.command
+ * Package: com.gyc.maker.cli.command
  * Description: 参数列表信息命令
  *
  * @Author gyc

@@ -1,6 +1,4 @@
-package templates.java.model;
-
-{basePackage}.model;
+package ${basePackage}.model;
 
 import lombok.Data;
 

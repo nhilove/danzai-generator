@@ -1,6 +1,4 @@
-package templates.java.generator;
-
-{basePackage}.generator;
+package ${basePackage}.generator;
 
 import cn.hutool.core.io.FileUtil;
 
@@ -10,7 +8,7 @@ import cn.hutool.core.io.FileUtil;
  * Description:
  *
  * @Author ${author}
- * @Create ${createTime}fffffffffffffffffffffff
+ * @Create ${createTime}
  * @Version ${version}
  */
 public class StaticGenerator {

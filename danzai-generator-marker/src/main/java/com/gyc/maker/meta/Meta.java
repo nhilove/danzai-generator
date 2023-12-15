@@ -1,4 +1,4 @@
-package com.gyc.meta;
+package com.gyc.maker.meta;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * ClassName: Meta
- * Package: com.gyc.meta
+ * Package: com.gyc.maker.meta
  * Description:
  *
  * @Author gyc
@@ -32,6 +32,7 @@ public class Meta {
     public static class FileConfig {
         private String inputRootPath;
         private String outputRootPath;
+        private String sourceRootPath;
         private String type;
         private List<FileInfo> files;
 

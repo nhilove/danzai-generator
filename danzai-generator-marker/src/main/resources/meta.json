@@ -6,8 +6,9 @@
   "author": "gyc",
   "createTime": "2023-11-22",
   "fileConfig": {
-    "inputRootPath": "D:/project/yupi/danzai/danzai-generator/danzai-generator-demo/acm-template-pro",
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
+    "sourceRootPath": "D:/project/yupi/danzai/danzai-generator/danzai-generator-demo/acm-template-pro",
     "type": "dir",
     "files": [
       {

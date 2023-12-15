@@ -1,6 +1,4 @@
-package templates.java.generator;
-
-{basePackage}.generator;
+package ${basePackage}.generator;
 
 import freemarker.template.TemplateException;
 
@@ -27,10 +25,10 @@ public class MainGenerator {
         String outputPath;
 
 <#list fileConfig.files as file>
-        inputPath = new File(inputRootPath,"${file.inputPath}").getAbsolutePath();
+                inputPath = new File(inputRootPath,"${file.inputPath}").getAbsolutePath();
         outputPath = new File(outputRootPath,"${file.outputPath}").getAbsolutePath();
     <#if file.generateType == "static">
-        StaticGenerator.copyStaticByHutools(inputPath, outputPath);
+                StaticGenerator.copyStaticByHutools(inputPath, outputPath);
 
      <#else>
         DynamicGenerator.doGenerator(inputPath, outputPath, dataMode);

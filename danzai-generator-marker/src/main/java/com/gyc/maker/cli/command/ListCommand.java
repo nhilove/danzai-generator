@@ -1,4 +1,4 @@
-package com.gyc.cli.command;
+package com.gyc.maker.cli.command;
 
 import cn.hutool.core.io.FileUtil;
 import picocli.CommandLine;
@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * ClassName: ListCommand
- * Package: com.gyc.cli.command
+ * Package: com.gyc.maker.cli.command
  * Description: 列表信息命令
  *
  * @Author gyc

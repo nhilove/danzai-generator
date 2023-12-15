@@ -60,7 +60,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.gyc.Main</mainClass>
+                            <mainClass>com.gyc.maker.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

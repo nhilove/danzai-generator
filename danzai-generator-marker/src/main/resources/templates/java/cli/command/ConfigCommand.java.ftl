@@ -1,6 +1,4 @@
-package templates.java.cli.command;
-
-{basePackage}.cli.command;
+package ${basePackage}.cli.command;
 
 import lombok.Data;
 import cn.hutool.core.util.ReflectUtil;
@@ -10,14 +8,14 @@ import picocli.CommandLine;
 import java.lang.reflect.Field;
 
 /**
-* ClassName: ConfigCommand
-* Package: ${basePackage}.cli.command
-* Description: ${description}
-*
-* @Author ${author}
-* @Create ${createTime}
-* @Version ${version}
-*/
+ * ClassName: ConfigCommand
+ * Package: ${basePackage}.cli.command
+ * Description: ${description}
+ *
+ * @Author ${author}
+ * @Create ${createTime}
+ * @Version ${version}
+ */
 @CommandLine.Command( name = "config",description = "配置信息",mixinStandardHelpOptions = true )
 public class ConfigCommand implements Runnable{
 

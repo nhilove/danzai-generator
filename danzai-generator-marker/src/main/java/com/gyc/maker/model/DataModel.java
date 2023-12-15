@@ -1,10 +1,10 @@
-package com.gyc.model;
+package com.gyc.maker.model;
 
 import lombok.Data;
 
 /**
  * ClassName: DataModel
- * Package: com.gyc.model
+ * Package: com.gyc.maker.model
  * Description:
  *
  * @Author gyc

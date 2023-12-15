@@ -1,6 +1,4 @@
-package templates.java.cli;
-
-{basePackage}.cli;
+package ${basePackage}.cli;
 
 import ${basePackage}.cli.command.ConfigCommand;
 import ${basePackage}.cli.command.GenerateCommand;
@@ -8,14 +6,14 @@ import ${basePackage}.cli.command.ListCommand;
 import picocli.CommandLine;
 
 /**
-* ClassName: CommandExecutor
-* Package: ${basePackage}.cli
-* Description: ${description}
-*
-* @Author ${author}
-* @Create ${createTime}
-* @Version ${version}
-*/
+ * ClassName: CommandExecutor
+ * Package: ${basePackage}.cli
+ * Description: ${description}
+ *
+ * @Author ${author}
+ * @Create ${createTime}
+ * @Version ${version}
+ */
 @CommandLine.Command( name = "${name}", mixinStandardHelpOptions = true )
 public class CommandExecutor implements Runnable{
 

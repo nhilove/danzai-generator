@@ -1,13 +1,13 @@
-package com.gyc.cli;
+package com.gyc.maker.cli;
 
-import com.gyc.cli.command.ConfigCommand;
-import com.gyc.cli.command.GeneratorCommand;
-import com.gyc.cli.command.ListCommand;
+import com.gyc.maker.cli.command.ConfigCommand;
+import com.gyc.maker.cli.command.GeneratorCommand;
+import com.gyc.maker.cli.command.ListCommand;
 import picocli.CommandLine;
 
 /**
  * ClassName: CommandExecutor
- * Package: com.gyc.cli
+ * Package: com.gyc.maker.cli
  * Description: 组合命令使用
  *
  * @Author gyc

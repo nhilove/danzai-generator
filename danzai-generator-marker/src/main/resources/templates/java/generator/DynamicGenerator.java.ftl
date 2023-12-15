@@ -1,6 +1,4 @@
-package templates.java.generator;
-
-{basePackage}.generator;
+package ${basePackage}.generator;
 
 import cn.hutool.core.io.FileUtil;
 import freemarker.template.Configuration;

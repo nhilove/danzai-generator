@@ -1,4 +1,4 @@
-package com.gyc.generator.file;
+package com.gyc.maker.generator.file;
 
 import cn.hutool.core.io.FileUtil;
 
@@ -6,7 +6,7 @@ import java.io.File;
 
 /**
  * ClassName: StaticFileGenerator
- * Package: com.gyc.generator
+ * Package: com.gyc.maker.generator
  * Description:
  *
  * @Author gyc

@@ -1,8 +1,8 @@
-package com.gyc.cli.command;
+package com.gyc.maker.cli.command;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.gyc.generator.file.FileGenerator;
-import com.gyc.model.DataModel;
+import com.gyc.maker.generator.file.FileGenerator;
+import com.gyc.maker.model.DataModel;
 import freemarker.template.TemplateException;
 import lombok.Data;
 import picocli.CommandLine;
@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
 
 /**
  * ClassName: GeneratorCommand
- * Package: com.gyc.cli.command
+ * Package: com.gyc.maker.cli.command
  * Description: 文件生成命令
  *
  * @Author gyc

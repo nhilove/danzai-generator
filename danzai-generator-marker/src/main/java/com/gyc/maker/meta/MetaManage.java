@@ -1,4 +1,4 @@
-package com.gyc.meta;
+package com.gyc.maker.meta;
 
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.json.JSONUtil;
@@ -26,7 +26,9 @@ public class MetaManage {
 
         String metaJson = ResourceUtil.readUtf8Str("meta.json");
         Meta newMeta = JSONUtil.toBean(metaJson, Meta.class);
-        //todo 校验
+        // 校验
+        MetaValidator.doValidateAndFill(newMeta);
+
         return newMeta;
 
     }
