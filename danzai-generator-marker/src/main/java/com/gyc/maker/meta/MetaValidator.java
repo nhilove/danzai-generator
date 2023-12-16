@@ -13,6 +13,7 @@ import com.gyc.maker.meta.enums.ModelTypeEnum;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * ClassName: MetaValidator
@@ -69,6 +70,15 @@ public class MetaValidator {
             return;
         }
         for (ModelConfig.ModelInfo modelInfo : models) {
+            String groupKey = modelInfo.getGroupKey();
+            if (StrUtil.isNotEmpty(groupKey)) {
+                //拼接参数字符串
+                String allArgsStr = modelInfo.getModels().stream()
+                        .map(subModelInfo -> String.format("\"--%s\"",subModelInfo.getFieldName()))
+                        .collect(Collectors.joining(", "));
+                modelInfo.setAllArgsStr(allArgsStr);
+                continue;
+            }
             String fieldName = modelInfo.getFieldName();
             if (StrUtil.isBlank(fieldName)) {
                 throw new MetaException("未填写 modelConfig 的 filedName");
@@ -90,6 +100,7 @@ public class MetaValidator {
         if (fileConfig == null) {
             return;
         }
+
         String sourceRootPath = fileConfig.getSourceRootPath();
         if (StrUtil.isBlank(sourceRootPath)) {
             throw new MetaException("未填写 sourceRootPath");
@@ -114,6 +125,12 @@ public class MetaValidator {
             return;
         }
         for (FileConfig.FileInfo fileInfo : files) {
+            //组文件时不检查
+            String fileInfoType = fileInfo.getType();
+            if (FileTypeEnum.GROUP.getValue().equals(fileInfoType)){
+                continue;
+            }
+
             String inputPath = fileInfo.getInputPath();
             if (StrUtil.isBlank(inputPath)) {
                 throw new MetaException("未填写 fileConfig 的 inputPath");
@@ -122,7 +139,7 @@ public class MetaValidator {
             if (StrUtil.isBlank(outputPath)) {
                 fileInfo.setOutputPath(inputPath);
             }
-            String fileInfoType = fileInfo.getType();
+
             if (StrUtil.isBlank(fileInfoType)) {
                 if (StrUtil.isBlank(FileUtil.getSuffix(inputPath))) {
                     fileInfo.setType(FileTypeEnum.DIR.getValue());

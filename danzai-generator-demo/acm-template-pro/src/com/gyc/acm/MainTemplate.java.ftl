@@ -2,13 +2,13 @@ package com.gyc.acm;
 
 import java.util.Scanner;
 /**
-* author ${author}
+* author ${mainTemplate.author}
 */
 class MainTemplate{
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-<#if loop>
+<#if loop??>
     while (scanner.hasNext()) {
 </#if>
 
@@ -23,8 +23,8 @@ class MainTemplate{
             for (int num: arr){
                 sum += num;
             }
-            System.out.println("${outputText}" + sum);
-<#if loop>
+            System.out.println("${mainTemplate.outputText}" + sum);
+<#if loop??>
         }
 </#if>
 

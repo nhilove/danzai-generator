@@ -1,3 +1,17 @@
+<#--<#macro generateParams indent modelInfo>-->
+<#--${indent}(${modelInfo?index+1}). ${modelInfo.fieldName}-->
+
+<#--${indent}类型：${modelInfo.type}-->
+
+<#--${indent}描述：${modelInfo.description}-->
+
+<#--${indent}默认值：${modelInfo.defaultValue?c}-->
+
+<#--${indent}缩写： -${modelInfo.abbr}-->
+
+<#--    全写： --${modelInfo.fieldName}-->
+<#--</#macro>-->
+
 # ${name}
 
 > ${description}
@@ -17,22 +31,26 @@ generator <命令> <选项参数是>
 
 示例命令
 ```
-generator generate <#list modelConfig.models as modelInfo>-${modelInfo.abbr} </#list>
+generator generate <#list modelConfig.models as modelInfo>-${modelInfo.abbr!""} </#list>
 ```
 
 ## 参数说明
-<#list modelConfig.models as modelInfo>
+<#--<#list modelConfig.models as modelInfo>-->
+<#--<#if modelInfo.group??>-->
+<#--&lt;#&ndash;    <#list modelInfo.models as subModelInfo>&ndash;&gt;-->
+<#--&lt;#&ndash;        <@generateParams indent="" modelInfo=subModelInfo/>&ndash;&gt;-->
+<#--&lt;#&ndash;    </#list>&ndash;&gt;-->
+<#--<#else>-->
+<#--    (${modelInfo?index+1}). ${modelInfo.fieldName}-->
 
-(${modelInfo?index+1}). ${modelInfo.fieldName}
+<#--    类型：${modelInfo.type}-->
 
-类型：${modelInfo.type}
+<#--    描述：${modelInfo.description}-->
 
-描述：${modelInfo.description}
+<#--    默认值：${modelInfo.defaultValue?c}-->
 
-默认值：${modelInfo.defaultValue?c}
+<#--    缩写： -${modelInfo.abbr}-->
 
-缩写： -${modelInfo.abbr}
-
-全写： --${modelInfo.fieldName}
-
-</#list>
+<#--    全写： --${modelInfo.fieldName}-->
+<#--</#if>-->
+<#--</#list>-->
