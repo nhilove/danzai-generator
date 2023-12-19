@@ -2,6 +2,7 @@
 .idea
 danzai-generator.iml
 generated
+.temp
 
 ### Java template
 # Compiled class file

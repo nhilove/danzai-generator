@@ -2,6 +2,7 @@
 .idea
 danzai-generator-marker.iml
 generated
+.temp
 
 ### Java template
 # Compiled class file

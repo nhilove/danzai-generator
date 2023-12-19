@@ -16,12 +16,6 @@ import java.io.IOException;
  */
 public class FileGenerator {
 
-    public static void main(String[] args) throws TemplateException, IOException {
-        String root = System.getProperty("user.dir");//danzai-generator
-        System.out.println(root);
-//        doGenerator();
-    }
-
     public static void doGenerator(Object dataMode) throws IOException, TemplateException {
         String root = System.getProperty("user.dir");//danzai-generator/danzai-generator-marker
         String parentPath = new File(root).getParent();

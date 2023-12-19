@@ -1,6 +1,5 @@
 package com.gyc.maker;
 
-import com.gyc.maker.cli.CommandExecutor;
 import com.gyc.maker.generator.main.MainGenerator;
 import freemarker.template.TemplateException;
 
@@ -18,8 +17,6 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws TemplateException, IOException, InterruptedException {
-        CommandExecutor commandExecutor = new CommandExecutor();
-        commandExecutor.doExecute(args);
         MainGenerator mainGenerator = new MainGenerator();
         mainGenerator.doGenerate();
     }
