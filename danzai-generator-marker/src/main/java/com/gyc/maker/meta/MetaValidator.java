@@ -106,7 +106,7 @@ public class MetaValidator {
             throw new MetaException("未填写 sourceRootPath");
         }
         String inputRootPath = fileConfig.getInputRootPath();
-        String defaultInputRootPath = ".source" + File.separator + FileUtil.getLastPathEle(Paths.get(sourceRootPath)).getFileName().toString();
+        String defaultInputRootPath = ".source/"  + FileUtil.getLastPathEle(Paths.get(sourceRootPath)).getFileName().toString();
         if (StrUtil.isBlank(inputRootPath)) {
             fileConfig.setInputRootPath(defaultInputRootPath);
         }

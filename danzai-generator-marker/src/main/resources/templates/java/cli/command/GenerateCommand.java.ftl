@@ -31,8 +31,9 @@ ${indent}private ${modelInfo.type} ${modelInfo.fieldName} <#if modelInfo.default
 </#macro>
 <#--生成命令调用-->
 <#macro generateCommand indent modelInfo>
-${indent}CommandLine commandLine = new CommandLine(${modelInfo.type}Command.class);
-${indent}commandLine.execute(${modelInfo.allArgsStr});
+${indent}System.out.println("输入${modelInfo.groupName}配置:");
+${indent}CommandLine ${modelInfo.groupKey}CommandLine = new CommandLine(${modelInfo.type}Command.class);
+${indent}${modelInfo.groupKey}CommandLine.execute(${modelInfo.allArgsStr});
 </#macro>
 
 @CommandLine.Command( name = "generate",description = "文件生成",mixinStandardHelpOptions = true )
