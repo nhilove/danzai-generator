@@ -1,8 +1,8 @@
 {
-  "name": "springboot-init-generator",
+  "name": "danzai-generator-web-backend-generator",
   "description": "Spring Boot模板项目生成器",
   "fileConfig": {
-    "sourceRootPath": "D:/Project/yupi/danzai/danzai-generator/danzai-generator-marker/.temp/1/springboot-init",
+    "sourceRootPath": "D:/Project/yupi/danzai/danzai-generator/danzai-generator-marker/.temp/1/danzai-generator-web-backend",
     "files": [
       {
         "type": "group",
@@ -382,13 +382,13 @@
           {
             "fieldName": "description",
             "type": "String",
-            "defaultValue": "springboot-init",
+            "defaultValue": "danzai-generator-web-backend",
             "description": "接口文档描述"
           },
           {
             "fieldName": "title",
             "type": "String",
-            "defaultValue": "springboot-init",
+            "defaultValue": "danzai-generator-web-backend",
             "description": "接口文档标题"
           },
           {

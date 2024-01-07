@@ -25,11 +25,11 @@ public class TemplateMakerTest {
     @Test
     public void testBug1() {
         Meta meta = new Meta();
-        meta.setName("springboot-init");
-        meta.setDescription("springboot-init示例模板生成器");
+        meta.setName("danzai-generator-web-backend");
+        meta.setDescription("danzai-generator-web-backend示例模板生成器");
         String projectPath = System.getProperty("user.dir");
         //复制过来的源文件的根目录
-        String originProjectPath = new File(projectPath).getParent() + File.separator + "danzai-generator-demo/springboot-init";
+        String originProjectPath = new File(projectPath).getParent() + File.separator + "danzai-generator-demo/danzai-generator-web-backend";
         String inputFilePath1 = "src/main/resources/application.yml";
         //模型参数配置
         TemplateMakerFileConfig templateMakerFileConfig = new TemplateMakerFileConfig();
@@ -54,11 +54,11 @@ public class TemplateMakerTest {
     @Test
     public void testBug2And3() {
         Meta meta = new Meta();
-        meta.setName("springboot-init");
-        meta.setDescription("springboot-init示例模板生成器");
+        meta.setName("danzai-generator-web-backend");
+        meta.setDescription("danzai-generator-web-backend示例模板生成器");
         String projectPath = System.getProperty("user.dir");
         //复制过来的源文件的根目录
-        String originProjectPath = new File(projectPath).getParent() + File.separator + "danzai-generator-demo/springboot-init";
+        String originProjectPath = new File(projectPath).getParent() + File.separator + "danzai-generator-demo/danzai-generator-web-backend";
 
         String inputFilePath1 = "src/main/java/com/yupi/springbootinit/common";
         //模型参数配置
@@ -83,11 +83,11 @@ public class TemplateMakerTest {
     @Test
     public void testBug4() {
         Meta meta = new Meta();
-        meta.setName("springboot-init");
-        meta.setDescription("springboot-init示例模板生成器");
+        meta.setName("danzai-generator-web-backend");
+        meta.setDescription("danzai-generator-web-backend示例模板生成器");
         String projectPath = System.getProperty("user.dir");
         //复制过来的源文件的根目录
-        String originProjectPath = new File(projectPath).getParent() + File.separator + "danzai-generator-demo/springboot-init";
+        String originProjectPath = new File(projectPath).getParent() + File.separator + "danzai-generator-demo/danzai-generator-web-backend";
 
         String inputFilePath1 = "./";
         //模型参数配置
@@ -111,7 +111,7 @@ public class TemplateMakerTest {
 
     @Test
     public void testMakeSpringWithJson() {
-        String rootPath = "example/springboot-init/";
+        String rootPath = "example/danzai-generator-web-backend/";
         String configStr = ResourceUtil.readUtf8Str(rootPath + "templateMaker.json");
         TemplateMakerConfig templateMakerConfig = JSONUtil.toBean(configStr, TemplateMakerConfig.class);
         long id = TemplateMaker.makeTemplate(templateMakerConfig);
@@ -121,7 +121,7 @@ public class TemplateMakerTest {
 
     @Test
     public void testMakeSpringBootTemplate() {
-        String rootPath = "example/springboot-init/";
+        String rootPath = "example/danzai-generator-web-backend/";
         String configStr = ResourceUtil.readUtf8Str(rootPath + "templateMaker.json");
         TemplateMakerConfig templateMakerConfig = JSONUtil.toBean(configStr, TemplateMakerConfig.class);
         long id = TemplateMaker.makeTemplate(templateMakerConfig);
