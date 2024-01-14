@@ -25,8 +25,10 @@ public class MetaManage {
     private static Meta initMeta() {
 
 
-//        String metaJson = ResourceUtil.readUtf8Str("meta.json");
-        String metaJson = ResourceUtil.readUtf8Str("danzai-generator-web-backend-meta.json");
+        String metaJson = ResourceUtil.readUtf8Str("meta.json");
+//        String metaJson = ResourceUtil.readUtf8Str("danzai-generator-web-backend-meta.json");
+//                String metaJson = ResourceUtil.readUtf8Str("springboot-init-meta.json");
+
         Meta newMeta = JSONUtil.toBean(metaJson, Meta.class);
         // 校验
         MetaValidator.doValidateAndFill(newMeta);

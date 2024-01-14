@@ -11,7 +11,8 @@ public class MainGenerator extends MainTemplate{
      * @param jarPath
      */
     @Override
-    protected void buildDist(String outputPath, String sourceRootPath, String shellOutputPath, String jarPath) {
+    protected String buildDist(String outputPath, String sourceRootPath, String shellOutputPath, String jarPath) {
         System.out.println("我不要精简版");
+        return outputPath;
     }
 }

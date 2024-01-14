@@ -1,7 +1,11 @@
 package com.yupi.web.controller;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.qcloud.cos.model.COSObject;
+import com.qcloud.cos.model.COSObjectInputStream;
+import com.qcloud.cos.utils.IOUtils;
 import com.yupi.web.annotation.AuthCheck;
 import com.yupi.web.common.BaseResponse;
 import com.yupi.web.common.DeleteRequest;
@@ -10,6 +14,7 @@ import com.yupi.web.common.ResultUtils;
 import com.yupi.web.constant.UserConstant;
 import com.yupi.web.exception.BusinessException;
 import com.yupi.web.exception.ThrowUtils;
+import com.yupi.web.manager.CosManager;
 import com.yupi.web.model.dto.generator.GeneratorAddRequest;
 import com.yupi.web.model.dto.generator.GeneratorEditRequest;
 import com.yupi.web.model.dto.generator.GeneratorQueryRequest;
@@ -25,11 +30,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 /**
  * 生成器管理接口
- *
  */
 @RestController
 @RequestMapping( "/generator" )
@@ -42,6 +48,8 @@ public class GeneratorController {
     @Resource
     private UserService userService;
 
+    @Resource
+    private CosManager cosManager;
     // region 增删改查
 
     /**
@@ -237,4 +245,44 @@ public class GeneratorController {
         return ResultUtils.success(result);
     }
 
+
+    @GetMapping( "/download" )
+    public void downloadGeneratorById(long id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (id < 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User loginUser = userService.getLoginUser(request);
+        Generator generator = generatorService.getById(id);
+        if (generator == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+        String filepath = generator.getDistPath();
+        if (StrUtil.isBlank(filepath)) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+        //追踪用户下载文件
+        log.info("用户{}，下载了{}",loginUser,filepath);
+        COSObjectInputStream cosObjectInput = null;
+        try {
+
+            COSObject cosObject = cosManager.getObject(filepath);
+            cosObjectInput = cosObject.getObjectContent();
+            //处理下载到的流
+            byte[] bytes = IOUtils.toByteArray(cosObjectInput);
+            //设置响应头
+            response.setContentType("application/octet-stream;charset=UTF-8");
+            response.setHeader("Content-Disposition", "attachment; filename=" + filepath);
+            //写入响应
+            response.getOutputStream().write(bytes);
+            response.getOutputStream().flush();
+
+        } catch (Exception e) {
+            log.error("file download error, filepath = " + filepath, e);
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "下载失败");
+        } finally {
+            if (cosObjectInput != null) {
+                cosObjectInput.close();
+            }
+        }
+    }
 }

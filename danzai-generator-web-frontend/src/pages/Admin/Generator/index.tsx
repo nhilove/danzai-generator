@@ -141,7 +141,7 @@ const GeneratorAdminPage: React.FC = () => {
       },
     },
     {
-      title: '创建生成器',
+      title: '用户id',
       dataIndex: 'userId',
       valueType: 'text',
       hideInForm: true,

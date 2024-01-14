@@ -20,7 +20,6 @@ import com.yupi.web.utils.SqlUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,7 +31,6 @@ import java.util.stream.Collectors;
 
 /**
  * 生成器服务实现
- *
  */
 @Service
 @Slf4j
@@ -41,9 +39,6 @@ public class GeneratorServiceImpl extends ServiceImpl<GeneratorMapper, Generator
     @Resource
     private UserService userService;
 
-
-    @Resource
-    private ElasticsearchRestTemplate elasticsearchRestTemplate;
 
     @Override
     public void validGenerator(Generator generator, boolean add) {

@@ -8,6 +8,30 @@ export default [
     ],
   },
   { path: '/', icon: 'home', component: './Index', name: '主页' },
+  { path: '/generator/add', icon: 'plus', component: './Generator/Add', name: '创建生成器' },
+  {
+    path: '/generator/update',
+    icon: 'home',
+    component: './Generator/Add',
+    name: '修改生成器',
+    hideInMenu: true,
+  },
+
+  {
+    path: '/generator/detail/:id',
+    icon: 'home',
+    component: './Generator/Detail',
+    name: '生成器详情',
+    hideInMenu: true,
+  },
+
+  {
+    path: '/test/file',
+    icon: 'home',
+    hideInMenu: true,
+    component: './Test/File',
+    name: '文件测试',
+  },
   {
     path: '/admin',
     icon: 'crown',

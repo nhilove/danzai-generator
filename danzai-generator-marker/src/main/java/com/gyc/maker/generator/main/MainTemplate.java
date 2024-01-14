@@ -3,6 +3,7 @@ package com.gyc.maker.generator.main;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.util.ZipUtil;
 import com.gyc.maker.generator.JarGenerator;
 import com.gyc.maker.generator.ScriptGenerator;
 import com.gyc.maker.generator.file.DynamicFileGenerator;
@@ -71,7 +72,7 @@ public abstract class MainTemplate {
      * @param shellOutputPath
      * @param jarPath
      */
-    protected void buildDist(String outputPath, String sourceRootPath, String shellOutputPath, String jarPath) {
+    protected String buildDist(String outputPath, String sourceRootPath, String shellOutputPath, String jarPath) {
         //精简包
         //精简包项目根路径
         String outPutDistPath = outputPath + "-dist";
@@ -85,6 +86,7 @@ public abstract class MainTemplate {
         //复制脚本文件
         FileUtil.copy(shellOutputPath, outPutDistPath, true);
         FileUtil.copy(shellOutputPath + ".bat", outPutDistPath, true);
+        return outPutDistPath;
     }
 
     /**
@@ -186,6 +188,18 @@ public abstract class MainTemplate {
         String sourceCopyProjectDestPath = outputPath + File.separator + ".source";
         FileUtil.copy(sourceRootPath, sourceCopyProjectDestPath, false);
         return sourceRootPath;
+    }
+
+
+    /**
+     * 制作压缩包
+     * @param outputPath
+     * @return 压缩包路径
+     */
+    protected String buildZip(String outputPath){
+        String zipPath = outputPath + ".zip";
+        ZipUtil.zip(outputPath, zipPath);
+        return zipPath;
     }
 
 }

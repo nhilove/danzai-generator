@@ -39,4 +39,5 @@ public class TemplateMakerUtils {
                 .filter(fileInfo -> !fileInputPathSet.contains(fileInfo.getInputPath()))
                 .collect(Collectors.toList());
     }
+
 }

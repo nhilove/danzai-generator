@@ -1,6 +1,7 @@
 package com.gyc.maker;
 
 import com.gyc.maker.generator.main.MainGenerator;
+import com.gyc.maker.generator.main.ZipGenerator;
 import freemarker.template.TemplateException;
 
 import java.io.IOException;
@@ -17,7 +18,9 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws TemplateException, IOException, InterruptedException {
-        MainGenerator mainGenerator = new MainGenerator();
-        mainGenerator.doGenerate();
+//        MainGenerator mainGenerator = new MainGenerator();
+//        mainGenerator.doGenerate();
+        ZipGenerator zipGenerator = new ZipGenerator();
+        zipGenerator.doGenerate();
     }
 }
