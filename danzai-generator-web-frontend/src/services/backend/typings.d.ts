@@ -177,6 +177,11 @@ declare namespace API {
     version?: string;
   };
 
+  type GeneratorUseRequest = {
+    dataModel?: Record<string, any>;
+    id?: string;
+  };
+
   type GeneratorVO = {
     author?: string;
     basePackage?: string;

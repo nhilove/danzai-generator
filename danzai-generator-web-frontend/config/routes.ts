@@ -18,6 +18,14 @@ export default [
   },
 
   {
+    path: '/generator/use/:id',
+    icon: 'home',
+    component: './Generator/Use',
+    name: '使用生成器',
+    hideInMenu: true,
+  },
+
+  {
     path: '/generator/detail/:id',
     icon: 'home',
     component: './Generator/Detail',

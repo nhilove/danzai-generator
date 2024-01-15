@@ -1,6 +1,5 @@
 package com.gyc.maker;
 
-import com.gyc.maker.generator.main.MainGenerator;
 import com.gyc.maker.generator.main.ZipGenerator;
 import freemarker.template.TemplateException;
 

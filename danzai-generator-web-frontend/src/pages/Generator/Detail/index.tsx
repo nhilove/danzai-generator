@@ -7,7 +7,7 @@ import { Link, useParams } from '@@/exports';
 import { DownloadOutlined, EditOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import { Button, Card, Col, message, Row, Space, Tabs, Tag, Typography } from 'antd';
+import { Button, Card, Col, Image, message, Row, Space, Tabs, Tag, Typography } from 'antd';
 import { saveAs } from 'file-saver';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
@@ -112,13 +112,15 @@ const GeneratorDetailPage: React.FC = () => {
             <Typography.Paragraph type="secondary">作者: {data.author}</Typography.Paragraph>
             <div style={{ marginTop: 24 }}></div>
             <Space size="middle">
-              <Button type="primary">立即使用</Button>
+              <Link to={`/generator/use/${id}`}>
+                <Button type="primary">立即使用</Button>
+              </Link>
               {downloadButton}
               {editButton}
             </Space>
           </Col>
           <Col flex="320px">
-            <img src={data.picture} />
+            <Image src={data.picture} />
           </Col>
         </Row>
       </Card>
